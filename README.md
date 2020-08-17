@@ -20,22 +20,43 @@ Process to create and test custom resolutions in Nvidia Control Panel is describ
 
 ## Installation
 
-### Python 3 installation
+### Method 1
+#### Python 3 installation
 - Install Python3 release on Windows 10 https://www.python.org/downloads/windows/. This should also install [pip](https://pip.pypa.io/en/stable/) (Python Package Installer) by default. 
 - While installing Python3 ensure that the 'Add Python 3.x to PATH is checked' in the installer.
 
-### Installing dependencies with PIP
+#### Installing dependencies with PIP
 
 ```bash
 pip install psutil pypiwin32 wmi apscheduler
 ```
 
-### Running LegionRefRateSwitcher.py
+#### Running LegionRefRateSwitcher.py
 
 In command line enter the following:
 
 ```bash
 py LegionRefRateSwitcher.py
+```
+
+### Method 2
+#### Executing the release build
+
+Navigate to https://github.com/brijananand/LegionRefRateSwitcher/releases and click on the latest release. Once found, find the .exe file under 'Assets'. The build was generated with pyinstaller. 
+
+#### Creating builds with pyinstaller
+
+Navigate into the source directory and open a command window to type the following:
+
+1) Install pyinstaller
+```bash
+pip install pyinstaller
+```
+
+2) Create the build. Replace version-file with your verison text file and icon with your .ico file. 
+
+```bash
+pyinstaller --onefile --version-file=version.txt --icon=icon.ico LegionRefRateSwitcher.py
 ```
 
 ## Version 0.1 Feature 
