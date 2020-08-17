@@ -1,5 +1,7 @@
 # LegionRefRateSwitcher
-Refresh rate switcher for Lenovo Legion 7i when battery powered for Windows 10
+Refresh rate switcher for Lenovo Legion 7i when battery powered for Windows 10. 
+
+The purpose is to automatically lower the refresh rate when on battery power in order to reduce battery usage by running the display at a higher refresh rate.
 
 ## Devices Tested on:
 
@@ -23,4 +25,7 @@ Auto switch the refresh rate of the laptop's display and one additional connecte
 ## Limitation:
 Currently, if an additional display is connected the display mode is always set to Optimus and cannot be changed. In this situation only the external monitor's refresh rate can be updated. The laptop's display will always be set to 144hz. Running the program with an external display will only update the external monitors refresh rate.
 
+## Battery consumption tests:
+
+Reduced battery usage when lowering the refresh rate by using this program is yet to be confirmed. 
 
