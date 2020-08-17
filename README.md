@@ -27,5 +27,5 @@ Currently, if an additional display is connected the display mode is always set 
 
 ## Battery consumption tests:
 
-Reduced battery usage when lowering the refresh rate by using this program is yet to be confirmed. 
+Reduced battery usage when lowering the refresh rate by using this program is yet to be confirmed. Currently the program only furnishes the need to automatically lower the refresh rate or increase it when on AC power. 
 
