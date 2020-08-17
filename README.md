@@ -40,7 +40,7 @@ py LegionRefRateSwitcher.py
 
 ## Version 0.1 Feature 
 
-Auto switch the refresh rate of the laptop's display and one additional connected display refresh rate between 60hz and highest available refresh rate for that display.
+Auto switch the refresh rate of the laptop's display and one additional connected display refresh rate between 60hz and highest available refresh rate for that display. The switch to a lower refresh rate happens only when the Vantage thermal mode - (1, 4) - Silent is selected by the user either by pressing fn + Q or through the Lenovo Vantage application. For all other modes even on battery power, the refresh rate should still be left on 144 hz considering that users might be requiring the higher refresh rate on other thermal modes.
 
 Vantage thermal modes outputs displayed in command line when the program runs:
 - (1, 4) - Silent 
