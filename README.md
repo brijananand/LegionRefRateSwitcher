@@ -1,6 +1,10 @@
 # LegionRefRateSwitcher
 Refresh rate switcher for Lenovo Legion 7i when battery powered for Windows 10
 
+## Devices Tested on:
+
+- Lenovo Legion 7i
+
 ## Prerequisite:
 
 Requires setting up a custom resolution refresh rate of 60hz for Lenovo Legion 7i's display in Nvidia Control Panel for the program to work.
