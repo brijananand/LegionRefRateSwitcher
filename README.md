@@ -44,7 +44,7 @@ py LegionRefRateSwitcher.py
 
 Navigate to https://github.com/brijananand/LegionRefRateSwitcher/releases and click on the latest release. Once found, find the .exe file under 'Assets'. The build was generated with pyinstaller. 
 
-### Creating .EXE builds with pyinstaller
+## Creating .EXE builds with pyinstaller
 
 Navigate into the source directory and open a command window to type the following:
 
