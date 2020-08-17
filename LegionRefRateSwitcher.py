@@ -2,7 +2,7 @@
 ====================================================================================================================
 Author: Brijan Iyer
 Description: Switch the laptop display's refresh rate based on available refresh rates when in battery powered mode.
-Version: 0.1
+Version: 0.1.1
 ====================================================================================================================
 """
 
@@ -41,6 +41,12 @@ def update_refrate():
     """Conditionally set min freq to 60hz when on battery or max out to max avialable refresh rate on AC power"""
     if (acmode == False) and (smartfanmode == (1, 4)):
         win32dev.DisplayFrequency = 60
+        win32api.ChangeDisplaySettings(win32dev, 0)
+        refrate=str(win32dev.DisplayFrequency) + "hz"
+        print("Refresh Rate: " + str(refrate), "| AC Powered: " + str(acmode), "| Vantage Thermal Mode:" + str(smartfanmode))
+
+    if (acmode == False) and ((smartfanmode == (2, 4)) or (smartfanmode == (3, 4))):
+        win32dev.DisplayFrequency = gpurefrates[0] or gpurefrates[1] #Currently only sets upto one externally connected display ref rate and laptop display ref rate. 
         win32api.ChangeDisplaySettings(win32dev, 0)
         refrate=str(win32dev.DisplayFrequency) + "hz"
         print("Refresh Rate: " + str(refrate), "| AC Powered: " + str(acmode), "| Vantage Thermal Mode:" + str(smartfanmode))
