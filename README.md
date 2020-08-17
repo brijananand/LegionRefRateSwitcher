@@ -42,12 +42,12 @@ py LegionRefRateSwitcher.py
 
 Auto switch the refresh rate of the laptop's display and one additional connected display refresh rate between 60hz and highest available refresh rate for that display.
 
-Vantage thermal modes:
+Vantage thermal modes outputs displayed in command line when the program runs:
 - (1, 4) - Silent 
 - (2, 4) - Balanced
 - (3, 4) - Performance
 
-AC Powered modes:
+AC Powered modes outputs displayed in command line when the program runs:
 - True: Running on AC Power
 - False: Running on Battery
 
