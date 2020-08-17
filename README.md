@@ -1,5 +1,5 @@
 # LegionRefRateSwitcher
-Refresh rate switcher for Lenovo Legion 7i when battery powered
+Refresh rate switcher for Lenovo Legion 7i when battery powered for Windows 10
 
 Version 0.1 - Initial Commit 
 
