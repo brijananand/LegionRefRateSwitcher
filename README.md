@@ -42,6 +42,15 @@ py LegionRefRateSwitcher.py
 
 Auto switch the refresh rate of the laptop's display and one additional connected display refresh rate between 60hz and highest available refresh rate for that display.
 
+Vantage thermal modes:
+- (1, 4) - Silent 
+- (2, 4) - Balanced
+- (3, 4) - Performance
+
+AC Powered modes:
+- True: Running on AC Power
+- False: Running on Battery
+
 ## Limitation
 Currently, if an additional display is connected the display mode is always set to Optimus and cannot be changed. In this situation only the external monitor's refresh rate can be updated. The laptop's display will always be set to 144hz. Running the program with an external display will only update the external monitors refresh rate.
 
