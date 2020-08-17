@@ -21,7 +21,6 @@ Switching the refresh rate of the laptop's display. However, If an external moni
 and laptop display configuration will be disabled. Hence, refresh rates can't be changed and in this situation the refresh rate of only the external monitor would update.
 """
 sched = BackgroundScheduler()
-
 def update_refrate():
     pythoncom.CoInitialize()
     
@@ -44,16 +43,16 @@ def update_refrate():
         win32dev.DisplayFrequency = 60
         win32api.ChangeDisplaySettings(win32dev, 0)
         refrate=str(win32dev.DisplayFrequency) + "hz"
-        print(refrate, acmode, smartfanmode)
+        print("Refresh Rate: " + str(refrate), "| AC Powered: " + str(acmode), "| Vantage Thermal Mode:" + str(smartfanmode))
         
     if (acmode == True):
         win32dev.DisplayFrequency = gpurefrates[0] or gpurefrates[1] #Currently only sets upto one externally connected display ref rate and laptop display ref rate. 
         win32api.ChangeDisplaySettings(win32dev, 0)
         refrate=str(win32dev.DisplayFrequency) + "hz"
-        print(refrate, acmode, smartfanmode)
+        print("Refresh Rate: " + str(refrate), "| AC Powered: " + str(acmode), "| Vantage Thermal Mode:" + str(smartfanmode))
   
 sched.add_job(update_refrate,'interval',seconds=3)
 sched.start()
 
-    
+input('Program executing. Press enter to exit.')
 
