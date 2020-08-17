@@ -3,7 +3,12 @@ Refresh rate switcher for Lenovo Legion 7i when battery powered for Windows 10
 
 ## Devices Tested on:
 
-- Lenovo Legion 7i
+- Lenovo Legion 7i with Display @ 144hz
+
+Other devices that it could work on but have not been tested:
+- Lenovo Legion 7i with Display @ 240hz
+- Lenovo Legion 5i with Display @ 144hz
+- Lenovo Legion 5 with Display @ 120hz
 
 ## Prerequisite:
 
