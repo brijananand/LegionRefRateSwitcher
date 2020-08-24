@@ -18,9 +18,9 @@ Requires setting up a custom resolution refresh rate of 60hz for Lenovo Legion 7
 
 Process to create and test custom resolutions in Nvidia Control Panel is described here: https://nvidia.custhelp.com/app/answers/detail/a_id/759/~/custom-resolutions
 
-## Installation
+## Running the application
 
-### Method 1
+### Method 1 - Using Python
 #### Python 3 installation
 - Install Python3 release on Windows 10 https://www.python.org/downloads/windows/. This should also install [pip](https://pip.pypa.io/en/stable/) (Python Package Installer) by default. 
 - While installing Python3 ensure that the 'Add Python 3.x to PATH is checked' in the installer.
@@ -39,12 +39,22 @@ In command line enter the following:
 py LegionRefRateSwitcher.py
 ```
 
-### Method 2
+### Method 2 - Executable / Windows build
 #### Executing the release build
 
 Navigate to https://github.com/brijananand/LegionRefRateSwitcher/releases and click on the latest release. Once found, find the .exe file under 'Assets'. The build was generated with pyinstaller. 
 
-## Creating .EXE builds with pyinstaller
+## Running on startup
+
+1) Launch Windows run (Win+R) and type:
+
+```bash
+shell:startup
+```
+
+2) Right click LegionRefRateSwitcher.exe from the location in which it exists and drag it into the startup directory. This should give you the option to 'Create shortcut here'. Click on it and a shortcut would be created for the executable to be launched on Windows startup.
+
+## Building an executable with pyinstaller
 
 Navigate into the source directory and open a command window to type the following:
 
@@ -59,9 +69,9 @@ pip install pyinstaller
 pyinstaller --onefile --version-file=version.txt --icon=icon.ico LegionRefRateSwitcher.py
 ```
 
-## Version 0.1 Feature 
+## Features 
 
-Auto switch the refresh rate of the laptop's display and one additional connected display refresh rate between 60hz and highest available refresh rate for that display. The switch to a lower refresh rate happens only when the Vantage thermal mode - (1, 4) - Silent is selected by the user either by pressing fn + Q or through the Lenovo Vantage application. For all other modes even on battery power, the refresh rate should still be left on 144 hz considering that users might be requiring the higher refresh rate on other thermal modes.
+The application auto switches the refresh rate of the laptop's display and one additional connected display refresh rate between 60hz and highest available refresh rate for that display. The switch to a lower refresh rate happens only when the Vantage thermal mode - (1, 4) - Silent is selected by the user either by pressing fn + Q or through the Lenovo Vantage application. For all other modes even on battery power, the refresh rate should still be left on 144 hz considering that users might be requiring the higher refresh rate on other thermal modes.
 
 Vantage thermal modes outputs displayed in command line when the program runs:
 - (1, 4) - Silent 
