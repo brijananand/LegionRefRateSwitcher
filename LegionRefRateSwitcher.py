@@ -2,19 +2,20 @@
 ====================================================================================================================
 Author: Brijan Iyer
 Description: Switch the laptop display's refresh rate based on available refresh rates when in battery powered mode.
-Version: 0.1.1
+Version: 0.1.2
 ====================================================================================================================
 """
 
 import psutil
-import win32api 
+import win32api
+import win32console
 import win32con
+import win32gui
 import pywintypes
 import wmi
 import pythoncom
 from winreg import *
 from apscheduler.schedulers.background import BackgroundScheduler
-
 
 """
 Switching the refresh rate of the laptop's display. However, If an external monitor is connected Nvidia Optimus is the only option enabled
@@ -23,7 +24,6 @@ and laptop display configuration will be disabled. Hence, refresh rates can't be
 sched = BackgroundScheduler()
 def update_refrate():
     pythoncom.CoInitialize()
-    
     acmode = psutil.sensors_battery().power_plugged #Get AC plugged in state
     hklmcon = ConnectRegistry(None, HKEY_LOCAL_MACHINE) #Access HKLM registry
     smtfanevnt = OpenKey(hklmcon,r"SOFTWARE\Lenovo\ImController\PluginData\GamingPlugin\Event\FanManagerPlugin\SmartFanModeEvent") # Lenovo Vantage Smart Fan mode event registry path for stored settings
@@ -31,6 +31,10 @@ def update_refrate():
     win32dev = pywintypes.DEVMODEType() #Utilize win32con DEVMODE to programmatically set display frequency
     win32dev.Fields = win32con.DM_DISPLAYFREQUENCY
     win32vidcon = wmi.WMI().Win32_VideoController()
+
+    """ Run as a Windows background process"""
+    hdwin = win32console.GetConsoleWindow()
+    win32gui.ShowWindow(hdwin, win32con.SW_HIDE)
 
     """Get Max Refresh Rate from Win32_VideoController using WMI and store in a list"""
     gpurefrates = list() #It is possible to have multi connected displays. Hence, fetch all connected display's refresh rates in a list.
@@ -60,5 +64,4 @@ def update_refrate():
 sched.add_job(update_refrate,'interval',seconds=3)
 sched.start()
 
-input('Program executing. Press enter to exit.')
-
+input('Program executing and will continue to execute as a background process.')
